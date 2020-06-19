@@ -1,3 +1,7 @@
+# Continuous Integration with Symbiotic EDA Formal tools.
+
+This information is to support [this video](https://www.youtube.com/watch?v=eONyoVT3EOg&feature=youtu.be)
+
 # Docker
 
 Build the docker image with the [build-ci-docker.sh](build-ci-docker.sh) shell script.
@@ -19,7 +23,7 @@ Then use the [runner-setup.sh](runner-setup.sh) script to download, install and 
     sudo ./runner-setup.sh <token>
 
 Add a [.gitlab-ci.yml](.gitlab-ci.yml) file to your repository and configure it as you like. With the example, the 
-proofs will be run on push and merge.
+proofs will be run on push and merge. This example simply runs [ci.sh](ci.sh), but equally a Makefile could be used.
 
 # Jenkins
 
@@ -41,3 +45,5 @@ In the build section, choose shell script and then paste this:
 
     cd <your build directory>
     docker run --user `id -u`:`id -g` --rm -v $(pwd):/work seda_ci:symbiotic-20200608A /bin/bash <command to run the proofs>
+
+The command we used in the video was [ci.sh](ci.sh)
