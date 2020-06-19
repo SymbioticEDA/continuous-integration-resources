@@ -1,0 +1,10 @@
+premerge-tests:
+  tags:
+    - demo
+  before_script:
+    - docker info
+  script:
+    - docker run --user `id -u`:`id -g` --rm -v $(pwd):/work seda_ci:symbiotic-20200608A /bin/bash ci.sh
+  only:
+    - merge_requests
+    - pushes
